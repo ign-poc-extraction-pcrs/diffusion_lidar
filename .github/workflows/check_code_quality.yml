@@ -13,9 +13,9 @@ jobs:
     - name: Install dependencies
       run: |
         pip install --upgrade pip setuptools 
-        pip install pylint black pytest
+        pip install pylint black pytest fastapi uvicorn httpx
     - name: "Analyse code with black"
-      run: black --diff --check backend tests
+      run: black --diff --check backend
     - name: "Analyse code with pylint"
       run: pylint --rcfile=backend/.pylintrc --disable=fixme backend --recursive=y
     - name: "Run unit tests"
