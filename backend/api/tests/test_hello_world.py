@@ -1,3 +1,4 @@
+# pylint: disable=import-error
 from fastapi.testclient import TestClient
 from api.app.main import app
 

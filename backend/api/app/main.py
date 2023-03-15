@@ -1,6 +1,6 @@
+# pylint: disable=import-error
 from fastapi import FastAPI
-
-import uvicorn as uvicorn
+# pylint: disable=import-error
 
 tags_metadata = [{"name": "hello_world", "description": "route test"}]
 
@@ -14,4 +14,9 @@ app = FastAPI(
 
 @app.get("/hello_world")
 def hello_world():
+    """route test
+
+    Returns:
+        dict: retourne un message test
+    """
     return {"hello": "world"}
