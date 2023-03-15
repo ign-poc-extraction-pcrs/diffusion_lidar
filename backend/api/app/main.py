@@ -1,6 +1,5 @@
 # pylint: disable=import-error
 from fastapi import FastAPI
-# pylint: disable=import-error
 
 tags_metadata = [{"name": "hello_world", "description": "route test"}]
 
