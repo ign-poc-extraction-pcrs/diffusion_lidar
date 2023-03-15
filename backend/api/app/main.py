@@ -17,7 +17,7 @@ app = FastAPI(
 )
 
 @app.get("/hello_world")
-def pong():
+def hello_world():
     return {"hello": "world"}
 
 
