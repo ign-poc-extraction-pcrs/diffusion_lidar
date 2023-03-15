@@ -1,0 +1,24 @@
+name: Check Quality
+on: [pull_request]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    name: Checks
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    - name: Install dependencies
+      run: |
+        pip install --upgrade pip setuptools 
+        pip install pylint black pytest
+    - name: "Analyse code with black"
+      run: black --diff --check backend tests
+    - name: "Analyse code with pylint"
+      run: pylint --rcfile=.pylintrc --disable=fixme backend --recursive=y
+    - name: "Analyse tests with pylint"
+      run: pylint --rcfile=.pylintrc --disable=fixme tests --recursive=y
+    - name: "Run unit tests"
+      run: pytest backend/api/tests/
