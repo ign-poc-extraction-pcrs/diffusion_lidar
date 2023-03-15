@@ -4,8 +4,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 origins = [
-    "http://localhost:3000",
-    "localhost:3000"
+    "http://frontend:3000",
+    "frontend:3000"
 ]
 
 tags_metadata = [{"name": "hello_world", "description": "route test"}]

@@ -15,4 +15,29 @@ services:
       - PYTHONUNBUFFERED=1
     ports:
       - "8000:8000"
+    networks:
+     - api
+  
+  frontend:
+    container_name: frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:    
+        - http_proxy
+        - https_proxy
+    volumes:
+      - '.:/frontend'
+      - '/frontend/node_modules'
+    ports:
+      - 3000:3000
+    environment:
+      - HTTP_PROXY=${HTTP_PROXY}
+      - HTTPS_PROXY=${HTTPS_PROXY}
+      - CHOKIDAR_USEPOLLING=true
+    networks:
+     - api
+
+networks:
+  api :
       
