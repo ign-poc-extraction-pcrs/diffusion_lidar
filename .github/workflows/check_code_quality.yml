@@ -15,10 +15,8 @@ jobs:
         pip install --upgrade pip setuptools 
         pip install pylint black pytest
     - name: "Analyse code with black"
-      run: black --diff --check backend tests
+      run: black --diff --check backend
     - name: "Analyse code with pylint"
-      run: pylint --rcfile=.pylintrc --disable=fixme backend --recursive=y
-    - name: "Analyse tests with pylint"
-      run: pylint --rcfile=.pylintrc --disable=fixme tests --recursive=y
+      run: pylint --rcfile=backend/.pylintrc --disable=fixme backend --recursive=y
     - name: "Run unit tests"
       run: pytest backend/api/tests/
